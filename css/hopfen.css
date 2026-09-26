@@ -385,17 +385,12 @@ a:focus-visible, button:focus-visible {
 .hopfen-kontakt {
   background: var(--hopfen-dark);
   color: var(--hopfen-cream);
-  padding: 4em 1.5em;
 }
 .hopfen-kontakt .title {
   color: var(--hopfen-cream);
 }
 .hopfen-kontakt .content a:link,
 .hopfen-kontakt .content a:visited {
-  color: var(--hopfen-yellow);
-}
-.hopfen-kontakt-icon {
-  font-size: 3rem;
   color: var(--hopfen-yellow);
 }
 .hopfen-kontakt-mail {
