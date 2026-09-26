@@ -30,6 +30,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updateArrows() {
       if (!prevBtn || !nextBtn) return;
+      var canScroll = track.scrollWidth > track.clientWidth;
+      prevBtn.classList.toggle("is-hidden", !canScroll);
+      nextBtn.classList.toggle("is-hidden", !canScroll);
       var maxScroll = track.scrollWidth - track.clientWidth - 1;
       prevBtn.disabled = track.scrollLeft <= 0;
       nextBtn.disabled = track.scrollLeft >= maxScroll;
