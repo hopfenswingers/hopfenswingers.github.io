@@ -79,7 +79,7 @@ body {
   }
 }
 
-.content .title {
+.content .title, .hopfen-carousel-header .title {
   text-transform: uppercase;
   font-family: oswald, sans-serif;
   font-weight: 700;
@@ -230,10 +230,20 @@ a:focus-visible, button:focus-visible {
 /* ===== Karussell-Grundgerüst ========================================
    Wird für Events- und Band-Karussell genutzt: horizontal scrollbarer
    Track mit Scroll-Snap plus zwei Pfeil-Buttons, die per JS scrollen. */
-.hopfen-carousel {
+.hopfen-carousel-header {
   display: flex;
+  width: 100%;
   align-items: center;
   gap: 1em;
+  margin-bottom: var(--bulma-block-spacing);
+}
+.hopfen-carousel-header .hopfen-carousel-arrow {
+  margin-bottom: var(--bulma-block-spacing);
+}
+.hopfen-carousel-header .title {
+  flex: 1;
+  text-align: center;
+  margin-bottom: var(--bulma-block-spacing);
 }
 .hopfen-carousel-track {
   display: flex;
@@ -276,7 +286,7 @@ a:focus-visible, button:focus-visible {
   background-color: rgba(0,0,0,0.06);
 }
 .hopfen-carousel-arrow[disabled] {
-  opacity: 0.3;
+  opacity: 0;
   cursor: default;
 }
 .hopfen-carousel-arrow.is-on-dark {
@@ -347,7 +357,6 @@ a:focus-visible, button:focus-visible {
 }
 .hopfen-band .content .title {
   text-align: center;
-  margin-bottom: 1.5em;
 }
 .member-card {
   width: 260px;
