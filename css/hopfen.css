@@ -244,6 +244,12 @@ a:focus-visible, button:focus-visible {
   flex: 1;
   padding: 0.25em;
   scrollbar-width: none;
+  width: 100%;
+  /* Zentriert den Inhalt, solange er in den sichtbaren Bereich passt.
+     "safe" sorgt dafür, dass bei Überlauf (mehr Karten als Platz) trotzdem
+     von links nach rechts gescrollt werden kann, statt Inhalt am Rand
+     abzuschneiden. */
+  justify-content: safe center;
 }
 .hopfen-carousel-track::-webkit-scrollbar {
   display: none;
