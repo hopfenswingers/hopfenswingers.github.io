@@ -201,12 +201,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   </section>
 
   <!-- Anfrage/Kontakt -->
-  <section class="hopfen-kontakt" id="kontakt">
+  <section id="kontakt" class="section hopfen-kontakt">
     <div class="columns">
       <div class="column is-one-quarter">
         <div class="block is-hvcentered">
           <div class="content">
-            <i class="fa-regular fa-envelope hopfen-kontakt-icon" aria-hidden="true"></i>
+            <script language="JavaScript">
+              user = 'office';
+              site = 'hopfenschwinger.at';
+              document.write('<a href=\"mailto:' + user + '@' + site + '\" aria-label=\"Email senden\">');
+              document.write('<i class="fa-regular fa-envelope fa-10x" aria-label="Anfrage-Email senden"></i></a>');
+            </script>
           </div>
         </div>
       </div>
