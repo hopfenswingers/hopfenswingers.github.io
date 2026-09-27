@@ -243,6 +243,7 @@ a:focus-visible, button:focus-visible {
   display: flex;
   width: 100%;
   align-items: center;
+  justify-content: center;
   gap: 1em;
   margin-bottom: var(--bulma-block-spacing);
 }
@@ -250,7 +251,6 @@ a:focus-visible, button:focus-visible {
   margin-bottom: var(--bulma-block-spacing);
 }
 .hopfen-carousel-header .title {
-  flex: 1;
   text-align: center;
   margin-bottom: var(--bulma-block-spacing);
 }
@@ -326,7 +326,7 @@ a:focus-visible, button:focus-visible {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
   text-transform: uppercase;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: 0.75em;
 }
 .event-card .event-title {
@@ -381,14 +381,22 @@ a:focus-visible, button:focus-visible {
   max-width: 320px;
   margin: 0 auto;
 }
+.hopfen-photo-box {
+  position: relative;
+}
 .hopfen-photo-box .image {
+  position: absolute;
+  inset: 0;
   box-shadow: none;
   background-color: var(--hopfen-yellow);
-  aspect-ratio: unset;
   width: 100%;
   height: 100%;
 }
 .hopfen-photo-box .image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   object-position: top right;
   padding: 0 0 0 0;
@@ -406,8 +414,7 @@ a:focus-visible, button:focus-visible {
     display: flex;
     flex-direction: column-reverse;
   }
-  .hopfen-photo-box .image {
-    height: auto;
+  .hopfen-photo-box {
     aspect-ratio: 4 / 3;
   }
   .hopfen-about {
@@ -417,7 +424,7 @@ a:focus-visible, button:focus-visible {
 
 /* ===== Band-Karussell ================================================ */
 .hopfen-band {
-  padding: 4em 1.5em;
+  padding: 2em 1.5em;
 }
 .hopfen-band .hopfen-carousel-header .title {
   color: var(--dark-text-color);
@@ -466,11 +473,35 @@ a:focus-visible, button:focus-visible {
   background-repeat: no-repeat;
   color: var(--hopfen-cream);
 }
+.hopfen-kontakt-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+.hopfen-kontakt-text {
+  max-width: 26em;
+}
+.hopfen-kontakt-text .title {
+  margin-top: 0;
+}
+.hopfen-kontakt-text p:last-child {
+  margin-bottom: 0;
+}
+.hopfen-kontakt-button {
+  flex-shrink: 0;
+}
+@media screen and (max-width: 768px) {
+  .hopfen-kontakt-text {
+    text-align: center;
+  }
+}
 .hopfen-kontakt .title {
   color: var(--hopfen-cream);
 }
-.hopfen-kontakt .content a:link,
-.hopfen-kontakt .content a:visited {
+.hopfen-kontakt a:link,
+.hopfen-kontakt a:visited {
   color: var(--hopfen-yellow);
 }
 .hopfen-kontakt-mail {
@@ -478,10 +509,9 @@ a:focus-visible, button:focus-visible {
   align-items: center;
   gap: 0.6em;
   font-weight: 700;
-  border: 3px solid rgba(255,255,255,0.35);
+  border: 3px solid rgba(250, 248, 244, 0.6);
   border-radius: 6px;
   padding: 0.75em 1.5em;
-  margin-top: 1em;
 }
 .hopfen-kontakt-mail:hover {
   background: rgba(255,255,255,0.08);
