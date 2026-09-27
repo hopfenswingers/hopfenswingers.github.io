@@ -1,13 +1,6 @@
 /* ===== Fonts ===================================================== */
-/* Oswald wird für Headlines & Labels genutzt. Passe die Pfade an, falls
-   eure statischen Oswald-Dateien anders benannt sind (Google Fonts'
-   "static"-Paket nutzt genau diese Dateinamen). */
-@font-face { font-family: oswald; font-weight: 200; src: url(../webfonts/Oswald/static/Oswald-ExtraLight.ttf); }
-@font-face { font-family: oswald; font-weight: 300; src: url(../webfonts/Oswald/static/Oswald-Light.ttf); }
-@font-face { font-family: oswald; font-weight: 400; src: url(../webfonts/Oswald/static/Oswald-Regular.ttf); }
-@font-face { font-family: oswald; font-weight: 500; src: url(../webfonts/Oswald/static/Oswald-Medium.ttf); }
-@font-face { font-family: oswald; font-weight: 600; src: url(../webfonts/Oswald/static/Oswald-SemiBold.ttf); }
-@font-face { font-family: oswald; font-weight: 700; src: url(../webfonts/Oswald/static/Oswald-Bold.ttf); }
+/* Anton für große Überschriften/Namen/Datum, Montserrat für Navigation
+   & Fließtext. Beide werden im <head> über Google Fonts geladen. */
 
 /* ===== Tokens ====================================================== */
 @property --dark-text-color {
@@ -43,6 +36,8 @@ html {
 
 body {
   color: var(--dark-text-color);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
 }
 
 .box {
@@ -79,10 +74,10 @@ body {
   }
 }
 
-.content .title, .hopfen-carousel-header .title {
+.content .title, .hopfen-carousel-header .title, .hopfen-insta .title {
   text-transform: uppercase;
-  font-family: oswald, sans-serif;
-  font-weight: 700;
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
   letter-spacing: 0.01em;
 }
 
@@ -116,7 +111,7 @@ a:focus-visible, button:focus-visible {
 }
 .photo-placeholder span {
   font-size: 0.85rem;
-  font-family: oswald, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
@@ -138,8 +133,8 @@ a:focus-visible, button:focus-visible {
   z-index: 30;
 }
 .hopfen-nav-brand {
-  font-family: oswald, sans-serif;
-  font-weight: 700;
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-size: 1.1rem;
@@ -152,8 +147,8 @@ a:focus-visible, button:focus-visible {
 .hopfen-nav-links {
   display: flex;
   gap: 1.75em;
-  font-family: oswald, sans-serif;
-  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
   text-transform: uppercase;
   font-size: 0.9rem;
   letter-spacing: 0.03em;
@@ -308,22 +303,26 @@ a:focus-visible, button:focus-visible {
 .event-card {
   width: 220px;
   border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 6px;
   padding: 1.5em 1.25em;
   text-align: center;
   background: var(--hopfen-cream);
 }
 .event-card .event-date {
-  font-family: oswald, sans-serif;
-  font-weight: 700;
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
   text-transform: uppercase;
   font-size: 1.2rem;
   margin-bottom: 0.75em;
 }
 .event-card .event-title {
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   margin-bottom: 0.25em;
 }
 .event-card .event-location {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
   font-size: 0.85rem;
   color: rgb(110, 108, 104);
 }
@@ -362,6 +361,8 @@ a:focus-visible, button:focus-visible {
   width: 260px;
   display: flex;
   flex-direction: column;
+  border-radius: 6px;
+  overflow: hidden;
 }
 .member-card-photo {
   aspect-ratio: 3/4;
@@ -371,13 +372,15 @@ a:focus-visible, button:focus-visible {
   background: var(--hopfen-cream);
 }
 .member-card-info .member-name {
-  font-family: oswald, sans-serif;
-  font-weight: 700;
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
   text-transform: uppercase;
   font-size: 1.15rem;
   line-height: 1.15;
 }
 .member-card-info .member-role {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
   font-size: 0.85rem;
   color: rgb(110, 108, 104);
   margin-top: 0.35em;
@@ -392,7 +395,10 @@ a:focus-visible, button:focus-visible {
 
 /* ===== Anfrage / Kontakt ============================================ */
 .hopfen-kontakt {
-  background: var(--hopfen-dark);
+  background-image: url(../img/Hintergrund_Kreide.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--hopfen-cream);
 }
 .hopfen-kontakt .title {
@@ -453,6 +459,8 @@ a:focus-visible, button:focus-visible {
   color: var(--dark-text-color);
 }
 .hopfen-footer p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
   font-size: 0.8rem;
   margin: 0;
 }
