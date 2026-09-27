@@ -23,6 +23,7 @@
 html {
   scroll-behavior: smooth;
   color-scheme: light;
+  overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -37,6 +38,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   color: var(--dark-text-color);
   background-color: var(--hopfen-cream);
   font-family: 'Montserrat', sans-serif;
@@ -212,6 +214,8 @@ a:focus-visible, button:focus-visible {
 .hopfen-hero {
   position: relative;
   background-color: var(--hopfen-cream);
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
 }
 .hopfen-hero .photo-placeholder {
   min-height: 70vh;
@@ -342,20 +346,35 @@ a:focus-visible, button:focus-visible {
 }
 
 /* ===== Über-uns / Megaphon-Sektion ================================= */
+/* Bulmas Standard-".section"-Padding hier auf 0, damit Bild-Spalte
+   wirklich bis an Fensterrand & an den Events-Bereich heranreicht.
+   Der Text bekommt sein Padding stattdessen selbst (siehe .hopfen-about). */
+#ueber-uns.section {
+  padding: 0;
+}
+#ueber-uns .columns {
+  gap: 0;
+  margin: 0;
+}
+#ueber-uns .column {
+  padding: 0;
+  margin: 0;
+}
 .hopfen-about .content {
   max-width: 30em;
   text-align: left;
 }
 .hopfen-about .content .title {
   color: var(--dark-text-color);
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-size: clamp(3rem, 5vw, 4.6rem);
 }
 .hopfen-about {
   margin: 0;
   box-shadow: none;
   background-color: var(--hopfen-yellow);
   color: var(--dark-text-color);
-  justify-content: flex-start;
+  justify-content: flex-end;
+  padding: 7em 3em 4em 9em;
 }
 .hopfen-about-emblem {
   width: 100%;
@@ -365,15 +384,35 @@ a:focus-visible, button:focus-visible {
 .hopfen-photo-box .image {
   box-shadow: none;
   background-color: var(--hopfen-yellow);
+  aspect-ratio: unset;
   width: 100%;
   height: 100%;
 }
 .hopfen-photo-box .image img {
   object-fit: contain;
-  padding: 3em;
+  object-position: top right;
+  padding: 0 0 0 0;
 }
 .hopfen-photo-box .image .photo-placeholder {
   object-fit: cover;
+}
+@media screen and (max-width: 768px) {
+  /* .columns wird hier zwingend als Flex-Container mit umgekehrter
+     Reihenfolge erzwungen. Nur "order" auf der Spalte reicht nicht,
+     falls Bulma .columns bei schmaler Ansicht selbst auf
+     "display:block" umschaltet (dann hat "order" keine Wirkung mehr,
+     und es zählt wieder die HTML-Reihenfolge: Text vor Bild). */
+  #ueber-uns .columns {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .hopfen-photo-box .image {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+  .hopfen-about {
+    padding: 4em 1.5em 2.5em 1.5em;
+  }
 }
 
 /* ===== Band-Karussell ================================================ */
