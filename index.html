@@ -203,33 +203,27 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
   <!-- Anfrage/Kontakt -->
   <section id="kontakt" class="section hopfen-kontakt">
-    <div class="columns">
-      <div class="column is-one-quarter">
-        <div class="block is-hvcentered">
-          <div class="content">
-            <script language="JavaScript">
-              user = 'office';
-              site = 'hopfenschwinger.at';
-              document.write('<a href=\"mailto:' + user + '@' + site + '\" aria-label=\"Email senden\">');
-              document.write('<i class="fa-regular fa-envelope fa-10x" aria-label="Anfrage-Email senden"></i></a>');
-            </script>
-          </div>
-        </div>
+    <div class="hopfen-kontakt-row">
+      <div class="hopfen-kontakt-icon">
+        <script language="JavaScript">
+          user = 'office';
+          site = 'hopfenschwinger.at';
+          document.write('<a href=\"mailto:' + user + '@' + site + '\" aria-label=\"Email senden\">');
+          document.write('<i class="fa-regular fa-envelope fa-10x" aria-label="Anfrage-Email senden"></i></a>');
+        </script>
       </div>
-      <div class="column">
-        <div class="block is-hvcentered">
-          <div class="content">
-            <h3 class="title is-2">Anfrage</h3>
-            <p>Ob private Feier, Firmenveranstaltungen oder öffentliche Events – wir sind für alle Schandtaten bereit und freuen uns über deine Anfrage!</p>
-            <script language="JavaScript">
-              user = 'office';
-              site = 'hopfenschwinger.at';
-              document.write('<a class="hopfen-kontakt-mail" href=\"mailto:' + user + '@' + site + '\">');
-              document.write('<span class="icon"><i class="fa-regular fa-envelope" aria-label="Anfrage-Email senden"></i></span> ');
-              document.write(user + '@' + site + '</a>');
-            </script>
-          </div>
-        </div>
+      <div class="content hopfen-kontakt-text">
+        <h3 class="title is-2">Anfrage</h3>
+        <p>Ob private Feier, Firmenveranstaltungen oder öffentliche Events – wir sind für alle Schandtaten bereit und freuen uns über deine Anfrage!</p>
+      </div>
+      <div class="hopfen-kontakt-button">
+        <script language="JavaScript">
+          user = 'office';
+          site = 'hopfenschwinger.at';
+          document.write('<a class="hopfen-kontakt-mail" href=\"mailto:' + user + '@' + site + '\">');
+          document.write('<span class="icon"><i class="fa-regular fa-envelope" aria-label="Anfrage-Email senden"></i></span> ');
+          document.write(user + '@' + site + '</a>');
+        </script>
       </div>
     </div>
   </section>
