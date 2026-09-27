@@ -22,6 +22,7 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -36,6 +37,7 @@ html {
 
 body {
   color: var(--dark-text-color);
+  background-color: var(--hopfen-cream);
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
 }
@@ -67,11 +69,6 @@ body {
 
 .content a:link, .content a:visited {
   color: rgb(131, 105, 52);
-}
-@media (prefers-color-scheme: dark) {
-  .content a:link, .content a:visited {
-    color: var(--hopfen-yellow);
-  }
 }
 
 .content .title, .hopfen-carousel-header .title, .hopfen-insta .title {
@@ -294,15 +291,15 @@ a:focus-visible, button:focus-visible {
 
 /* ===== Events ======================================================= */
 .hopfen-events {
+  background-color: var(--hopfen-cream);
   padding: 4em 1.5em;
 }
-.hopfen-events .content .title {
-  text-align: center;
-  margin-bottom: 1.5em;
+.hopfen-events .hopfen-carousel-header .title {
+  color: var(--dark-text-color);
 }
 .event-card {
   width: 220px;
-  border: 1px solid rgba(0,0,0,0.15);
+  border: 3px solid var(--hopfen-yellow);
   border-radius: 6px;
   padding: 1.5em 1.25em;
   text-align: center;
@@ -335,6 +332,16 @@ a:focus-visible, button:focus-visible {
 .hopfen-about .content {
   max-width: 30em;
 }
+.hopfen-about .content .title {
+  color: var(--dark-text-color);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+}
+.hopfen-about {
+  margin: 0;
+  box-shadow: none;
+  background-color: var(--hopfen-yellow);
+  color: var(--dark-text-color);
+}
 .hopfen-about-emblem {
   width: 100%;
   max-width: 320px;
@@ -342,10 +349,14 @@ a:focus-visible, button:focus-visible {
 }
 .hopfen-photo-box .image {
   box-shadow: var(--bulma-shadow);
+  background-color: var(--hopfen-yellow);
   width: 100%;
   height: 100%;
 }
-.hopfen-photo-box .image img,
+.hopfen-photo-box .image img {
+  object-fit: contain;
+  padding: 3em;
+}
 .hopfen-photo-box .image .photo-placeholder {
   object-fit: cover;
 }
@@ -354,8 +365,8 @@ a:focus-visible, button:focus-visible {
 .hopfen-band {
   padding: 4em 1.5em;
 }
-.hopfen-band .content .title {
-  text-align: center;
+.hopfen-band .hopfen-carousel-header .title {
+  color: var(--dark-text-color);
 }
 .member-card {
   width: 260px;
@@ -412,7 +423,9 @@ a:focus-visible, button:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 0.6em;
-  border: 1px solid rgba(255,255,255,0.35);
+  font-weight: 700;
+  border: 3px solid rgba(255,255,255,0.35);
+  border-radius: 6px;
   padding: 0.75em 1.5em;
   margin-top: 1em;
 }
@@ -422,11 +435,12 @@ a:focus-visible, button:focus-visible {
 
 /* ===== Instagram ===================================================== */
 .hopfen-insta {
+  background-color: var(--hopfen-cream);
   padding: 4em 1.5em;
   text-align: center;
 }
 .hopfen-insta .title {
-  color: var(--hopfen-yellow-deep);
+  color: var(--hopfen-yellow);
   margin-bottom: 1em;
 }
 .hopfen-insta-embed {
@@ -455,7 +469,8 @@ a:focus-visible, button:focus-visible {
   display: flex;
   gap: 1em;
 }
-.hopfen-footer-social a {
+.hopfen-footer-social a:link,
+.hopfen-footer-social a:visited {
   color: var(--dark-text-color);
 }
 .hopfen-footer p {
