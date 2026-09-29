@@ -416,6 +416,7 @@ a:focus-visible, button:focus-visible {
   }
   .hopfen-photo-box {
     aspect-ratio: 4 / 3;
+    min-height: 220px;
   }
   .hopfen-about {
     padding: 4em 1.5em 2.5em 1.5em;
@@ -562,4 +563,21 @@ a:focus-visible, button:focus-visible {
   font-weight: 400;
   font-size: 0.8rem;
   margin: 0;
+}
+
+/* ===== Impressum ===================================================== */
+/* Die fixe Navbar hat keinen eigenen Hintergrund (sie liegt auf der
+   Startseite über dem Gruppenfoto) – hier braucht es daher genug
+   Abstand oben, damit der Inhalt nicht darunter verschwindet. */
+.hopfen-impressum {
+  padding: 9em 1.5em 4em;
+  max-width: 40em;
+  margin: 0 auto;
+  color: var(--dark-text-color);
+}
+.hopfen-impressum .title {
+  color: var(--dark-text-color);
+}
+.hopfen-impressum strong {
+  color: var(--dark-text-color);
 }
