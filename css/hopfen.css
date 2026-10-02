@@ -234,6 +234,11 @@ a:focus-visible, button:focus-visible {
   .hopfen-hero .photo-placeholder {
     min-height: 60vh;
   }
+  .hopfen-hero .photo-placeholder img {
+    /* Schneidet links+rechts je 10% der Bildbreite weg, BEVOR cover das
+       Ergebnis in die Box einpasst – nur unterhalb von 768px aktiv. */
+    object-view-box: inset(0% 10% 0% 10%);
+  }
 }
 
 /* ===== Karussell-Grundgerüst ========================================
@@ -593,13 +598,8 @@ a:focus-visible, button:focus-visible {
   padding: 9em 1.5em 4em;
   max-width: 40em;
   margin: 0 auto;
-  color: var(--dark-text-color);
 }
-
-.hopfen-impressum .title {
-  color: var(--dark-text-color);
-}
-
-.hopfen-impressum strong {
-  color: var(--dark-text-color);
+.hopfen-impressum .title,
+.hopfen-impressum p strong {
+  color: var(--hopfen-dark);
 }
