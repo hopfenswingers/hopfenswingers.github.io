@@ -49,6 +49,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateArrows() {
       if (!prevBtn || !nextBtn) return;
       var maxScroll = track.scrollWidth - track.clientWidth - 1;
+      // Reicht der Platz für alle Karten, werden die Pfeile ganz ausgeblendet
+      var hasOverflow = maxScroll > 0;
+      prevBtn.classList.toggle('hopfen-arrow-hidden', !hasOverflow);
+      nextBtn.classList.toggle('hopfen-arrow-hidden', !hasOverflow);
       prevBtn.disabled = track.scrollLeft <= 0;
       nextBtn.disabled = track.scrollLeft >= maxScroll;
     }
@@ -65,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     track.addEventListener('scroll', updateArrows);
     window.addEventListener('resize', updateArrows);
+    window.addEventListener('load', updateArrows);
     updateArrows();
   });
 });
