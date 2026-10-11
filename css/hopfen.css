@@ -238,23 +238,6 @@ a:focus-visible, button:focus-visible {
   object-position: center;
 }
 
-/* Dezenter Zoom beim Laden des Gruppenfotos (einmalig, ca. 12 s, 100 → 105 %).
-   Nur wenn der Nutzer keine reduzierte Bewegung eingestellt hat.
-   overflow:hidden schneidet das vergrößerte Bild an der Box ab. */
-@media (prefers-reduced-motion: no-preference) {
-  .hopfen-hero .photo-placeholder {
-    overflow: hidden;
-  }
-  .hopfen-hero .photo-placeholder img {
-    transform-origin: center center;
-    animation: hopfen-hero-zoom 12s ease-out both;
-  }
-}
-@keyframes hopfen-hero-zoom {
-  from { transform: scale(1); }
-  to   { transform: scale(1.05); }
-}
-
 /* Für Suchmaschinen/Screenreader vorhanden, optisch aber unsichtbar (h1) */
 .hopfen-visually-hidden {
   position: absolute;
@@ -329,6 +312,12 @@ a:focus-visible, button:focus-visible {
 .hopfen-carousel-arrow[disabled] {
   opacity: 0.3;
   cursor: default;
+}
+/* Pfeile komplett ausblenden, solange alle Karten ohne Scrollen Platz haben
+   (wird in hopfen.js gesetzt). Bei Überlauf bleiben sie sichtbar und werden
+   an den Enden nur grau. */
+.hopfen-carousel-arrow.hopfen-arrow-hidden {
+  display: none;
 }
 .hopfen-carousel-arrow.is-on-dark {
   border-color: rgba(255,255,255,0.4);
