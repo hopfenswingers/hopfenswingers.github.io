@@ -15,6 +15,24 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Vergangene Termine ausblenden.
+  // Jede Karte trägt data-date="JJJJ-MM-TT" (optional data-end für mehrtägige
+  // Events). Am Veranstaltungstag selbst bleibt der Termin noch sichtbar.
+  var eventCards = document.querySelectorAll('.event-card[data-date]');
+  if (eventCards.length) {
+    var now = new Date();
+    var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+    var today = now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
+    eventCards.forEach(function (card) {
+      var last = card.getAttribute('data-end') || card.getAttribute('data-date');
+      if (last < today) card.remove();
+    });
+    if (!document.querySelector('.event-card')) {
+      var eventsCarousel = document.querySelector('#events [data-carousel]');
+      if (eventsCarousel) eventsCarousel.classList.add('is-empty');
+    }
+  }
+
   // Pfeil-Karussells (Events, Band). Scrollt den Track um eine Kartenbreite.
   document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
     var track = carousel.querySelector('[data-carousel-track]');
@@ -30,9 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updateArrows() {
       if (!prevBtn || !nextBtn) return;
-      var canScroll = track.scrollWidth > track.clientWidth;
-      prevBtn.classList.toggle("is-hidden", !canScroll);
-      nextBtn.classList.toggle("is-hidden", !canScroll);
       var maxScroll = track.scrollWidth - track.clientWidth - 1;
       prevBtn.disabled = track.scrollLeft <= 0;
       nextBtn.disabled = track.scrollLeft >= maxScroll;
